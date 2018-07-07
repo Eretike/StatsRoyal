@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bellioba.statsroyal.api.ConnexionFactory;
+import com.bellioba.statsroyal.api._interface.RecuperationDonnees;
+import com.xilixir.fortniteapi.v2.Credentials;
 import com.xilixir.fortniteapi.v2.FortniteAPI;
 
 
@@ -26,18 +28,17 @@ public class ServletCombat extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        /*Recupère les noms d'utilisateur des joueurs a comparer*/
+        RecuperationDonnees recuperationDonnees = ( (ConnexionFactory) getServletContext().getAttribute( "connexionFactory" ) ).getRecuperationDonnees();
+
+        /*Recupï¿½re les noms d'utilisateur des joueurs a comparer*/
         String userName1 = request.getParameter("player1");
         String userName2 = request.getParameter("player2");
 
         session.setAttribute("player1", userName1);
         session.setAttribute("player2", userName2);
 
-        
-        FortniteAPI api = ConnexionFactory.getConnexion();
-        
-        
-        System.out.println(api.getStats(api.getUserInfo("Ninja").getId()).getTotalWins());
+
+        System.out.println(recuperationDonnees.getJoueur("Ninja", "pc").getStats().getSoloKills());
 
         response.sendRedirect(OUT);
     }

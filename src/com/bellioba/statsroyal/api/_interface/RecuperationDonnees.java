@@ -5,8 +5,8 @@ import com.bellioba.statsroyal.api.bean.Joueur;
 
 /**
  * @author BELLION BASTIEN
- * Interface de la récupération des données depuis l'api de fortnite
+ * Interface de la rï¿½cupï¿½ration des donnï¿½es depuis l'api de fortnite
  */
 public interface RecuperationDonnees {
-	Joueur getInfosJoueur(String pseudo, String plateforme);
+	Joueur getJoueur(String pseudo, String plateforme);
 }

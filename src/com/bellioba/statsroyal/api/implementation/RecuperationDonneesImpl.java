@@ -1,5 +1,28 @@
 package com.bellioba.statsroyal.api.implementation;
 
-public class RecuperationDonneesImpl {
+import com.bellioba.statsroyal.api.ConnexionFactory;
+import com.bellioba.statsroyal.api._interface.RecuperationDonnees;
+import com.bellioba.statsroyal.api.bean.Joueur;
+import com.xilixir.fortniteapi.v2.FortniteAPI;
 
+import java.io.IOException;
+
+public class RecuperationDonneesImpl implements RecuperationDonnees {
+    private ConnexionFactory connexionFactory;
+
+    public RecuperationDonneesImpl(ConnexionFactory connexionFactory){
+        this.connexionFactory = connexionFactory;
+    }
+
+    public Joueur getJoueur(String pseudo, String plateforme){
+        Joueur joueur = new Joueur(pseudo, plateforme);
+        FortniteAPI connexion = connexionFactory.getConnexion();
+        try {
+            joueur.setId(connexion.getUserInfo(pseudo).getId());
+            joueur.setStats(connexion.getStats(joueur.getId()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return joueur;
+    }
 }
