@@ -218,7 +218,7 @@ iframe {
   width: 100%;
   position: relative;
   border-bottom: 2px solid #adadad;
-  margin-bottom: 37px;
+  margin-top: 37px;
 }
 
 .input100 {
@@ -489,5 +489,12 @@ iframe {
   }
 }
 
+#radioBtn .notActive{
+    color: #3276b1;
+    background-color: #fff;
+}
 
-
+.input-group{
+    margin-top: 5px;
+    position: relative;
+}

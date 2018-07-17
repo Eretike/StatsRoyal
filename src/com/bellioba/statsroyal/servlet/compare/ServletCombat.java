@@ -12,16 +12,12 @@ import javax.servlet.http.HttpSession;
 
 import com.bellioba.statsroyal.api.ConnexionFactory;
 import com.bellioba.statsroyal.api._interface.RecuperationDonnees;
-import com.xilixir.fortniteapi.v2.Credentials;
-import com.xilixir.fortniteapi.v2.FortniteAPI;
-
+import com.bellioba.statsroyal.api.bean.Joueur;
 
 @WebServlet(name = "ServletCombat", urlPatterns = {"/ServletCombat"})
 public class ServletCombat extends HttpServlet {
 
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 215342073429392044L;
 	private static final String OUT = "commun/resultat.jsp";
 
@@ -31,14 +27,14 @@ public class ServletCombat extends HttpServlet {
         RecuperationDonnees recuperationDonnees = ( (ConnexionFactory) getServletContext().getAttribute( "connexionFactory" ) ).getRecuperationDonnees();
 
         /*Recup�re les noms d'utilisateur des joueurs a comparer*/
-        String userName1 = request.getParameter("player1");
-        String userName2 = request.getParameter("player2");
+        String nomUtilisateur1 = request.getParameter("player1");
+        String nomUtilisateur2 = request.getParameter("player2");
 
-        session.setAttribute("player1", userName1);
-        session.setAttribute("player2", userName2);
+        Joueur joueur1 = recuperationDonnees.getJoueur(nomUtilisateur1, "pc");
+        Joueur joueur2 = recuperationDonnees.getJoueur(nomUtilisateur2, "pc");
 
-
-        System.out.println(recuperationDonnees.getJoueur("Ninja", "pc").getStats().getSoloKills());
+        session.setAttribute("joueur1", joueur1);
+        session.setAttribute("joueur2", joueur2);
 
         response.sendRedirect(OUT);
     }
