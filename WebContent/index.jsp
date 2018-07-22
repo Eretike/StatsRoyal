@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Fortnite Battle</title>
+    <title>Stats Royal</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,36 +26,64 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122658477-1"></script>
 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
+        gtag('config', 'UA-122658477-1');
+    </script>
+
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-7273034286469953",
+            enable_page_level_ads: true
+        });
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#237afc"
+                    },
+                    "button": {
+                        "background": "transparent",
+                        "text": "#fff",
+                        "border": "#fff"
+                    }
+                },
+                "position": "bottom-right",
+                "content": {
+                    "href": "cookiePolicy.jsp"
+                }
+            })});
+    </script>
 </head>
 <body>
 <div class="limiter">
     <div class="container-login100">
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="POST" action="ServletCombat">
+            <form class="login100-form validate-form" method="GET" action="ServletCombat">
 					<span class="login100-form-title p-b-26">
 						Welcome to <br> Stats Royal
 					</span>
 
                 <div class="wrap-input100 validate-input" data-validate="Player doesn't exist.">
-                    <input class="input100" type="text" name="player1">
+                    <input class="input100" type="text" name="player1" required="required">
                     <span class="focus-input100" data-placeholder="Player 1"></span>
                 </div>
 
 
-                <%--<div class="input-group">--%>
-                    <%--<div id="radioBtn" class="btn-group">--%>
-                        <%--<a class="btn btn-primary btn-sm active" data-toggle="fun" data-title="pc"><img src="ressources/commun/images/windows-brands.svg" height="20 px" width="20 px">a</a>--%>
-                        <%--<a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="ps"><img src="ressources/commun/images/playstation-brands.svg" height="20 px" width="20 px">b</a>--%>
-                        <%--<a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="xbox"><img src="ressources/commun/images/xbox-brands.svg" height="20 px" width="20 px">c</a>--%>
-                    <%--</div>--%>
-                    <%--<input type="hidden" name="fun" id="fun">--%>
-                <%--</div>--%>
-
-
                 <div class="wrap-input100 validate-input" data-validate="Player doesn't exist.">
-                    <input class="input100" type="text" name="player2">
+                    <input class="input100" type="text" name="player2" required="required">
                     <span class="focus-input100" data-placeholder="Player 2"></span>
                 </div>
 
@@ -72,9 +100,9 @@
             </form>
         </div>
     </div>
+
 </div>
 
-<script src="ressources/commun/js/radioButton.js"></script>
-
+<script src=ressources/js/index.js></script>
 </body>
 </html>

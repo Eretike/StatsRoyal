@@ -38,6 +38,25 @@ public class ServletCombat extends HttpServlet {
 
         response.sendRedirect(OUT);
     }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession();
+
+        RecuperationDonnees recuperationDonnees = ( (ConnexionFactory) getServletContext().getAttribute( "connexionFactory" ) ).getRecuperationDonnees();
+
+        /*Recup�re les noms d'utilisateur des joueurs a comparer*/
+        String nomUtilisateur1 = request.getParameter("player1");
+        String nomUtilisateur2 = request.getParameter("player2");
+
+        Joueur joueur1 = recuperationDonnees.getJoueur(nomUtilisateur1, "pc");
+        Joueur joueur2 = recuperationDonnees.getJoueur(nomUtilisateur2, "pc");
+
+        session.setAttribute("joueur1", joueur1);
+        session.setAttribute("joueur2", joueur2);
+
+        response.sendRedirect(OUT);
+    }
 }
 
 
