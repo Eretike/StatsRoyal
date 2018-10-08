@@ -38,13 +38,6 @@
         gtag('config', 'UA-122658477-1');
     </script>
 
-    <script>
-        (adsbygoogle = window.adsbygoogle || []).push({
-            google_ad_client: "ca-pub-7273034286469953",
-            enable_page_level_ads: true
-        });
-    </script>
-
     <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
     <script>
@@ -68,10 +61,23 @@
     </script>
 </head>
 <body>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
 <div class="limiter">
     <div class="container-login100">
+        <div class="pub">
+            <script type="text/javascript">
+                ( function() {
+                    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                    var unit = {"calltype":"async[2]","publisher":"statsroyal","width":160,"height":600,"sid":"Chitika Default"};
+                    var placement_id = window.CHITIKA.units.length;
+                    window.CHITIKA.units.push(unit);
+                    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                }());
+            </script>
+            <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
+        </div>
         <div class="wrap-login100">
-            <form class="login100-form validate-form" method="GET" action="ServletCombat">
+            <form class="login100-form validate-form" method="POST" action="ServletCombat">
 					<span class="login100-form-title p-b-26">
 						Welcome to <br> Stats Royal
 					</span>
@@ -87,7 +93,7 @@
                     <span class="focus-input100" data-placeholder="Player 2"></span>
                 </div>
 
-
+                ${ErreurMatch}
                 <div class="container-login100-form-btn">
                     <div class="wrap-login100-form-btn">
                         <div class="login100-form-bgbtn"></div>
@@ -98,6 +104,18 @@
                 </div>
 
             </form>
+        </div>
+        <div class="pub">
+            <script type="text/javascript">
+                ( function() {
+                    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+                    var unit = {"calltype":"async[2]","publisher":"statsroyal","width":160,"height":600,"sid":"Chitika Default"};
+                    var placement_id = window.CHITIKA.units.length;
+                    window.CHITIKA.units.push(unit);
+                    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+                }());
+            </script>
+            <script type="text/javascript" src="//cdn.chitika.net/getads.js" async></script>
         </div>
     </div>
 

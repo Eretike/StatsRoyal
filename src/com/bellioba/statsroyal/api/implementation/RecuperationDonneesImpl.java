@@ -14,15 +14,13 @@ public class RecuperationDonneesImpl implements RecuperationDonnees {
         this.connexionFactory = connexionFactory;
     }
 
-    public Joueur getJoueur(String pseudo, String plateforme){
+    public Joueur getJoueur(String pseudo, String plateforme) throws IOException{
         Joueur joueur = new Joueur(pseudo, plateforme);
         FortniteAPI connexion = connexionFactory.getConnexion();
-        try {
-            joueur.setId(connexion.getUserInfo(pseudo).getId());
-            joueur.setStats(connexion.getStats(joueur.getId()));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        joueur.setId(connexion.getUserInfo(pseudo).getId());
+        joueur.setStats(connexion.getStats(joueur.getId()));
+
         return joueur;
     }
 }

@@ -188,6 +188,8 @@ public class FortniteAPI {
         request.getHeaders().setAuthorization("bearer " + this.auth.getAccessToken());
 
         String json = request.execute().parseAsString();
+
+
         EpicLookup lookup = new Gson().fromJson(json, EpicLookup.class);
         log("Looked up user '" + lookup.getDisplayName() + "{" + lookup.getId() + "}'");
         return lookup;

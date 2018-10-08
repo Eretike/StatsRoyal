@@ -245,6 +245,11 @@ iframe {
   pointer-events: none;
 }
 
+.pub{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .focus-input100::before {
   content: "";
   display: block;

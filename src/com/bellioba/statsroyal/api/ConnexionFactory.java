@@ -9,7 +9,9 @@ import com.xilixir.fortniteapi.v2.Credentials;
 import com.xilixir.fortniteapi.v2.FortniteAPI;
 
 
-
+/**
+ *
+ */
 public class ConnexionFactory {
 	
 	private static ResourceBundle LOGIN_FORTNITE;
